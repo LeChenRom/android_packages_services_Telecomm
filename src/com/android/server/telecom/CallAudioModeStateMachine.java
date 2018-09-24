@@ -311,7 +311,7 @@ public class CallAudioModeStateMachine extends StateMachine {
             mAudioManager.requestAudioFocusForCall(AudioManager.STREAM_VOICE_CALL,
                     AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
-            if (call != null && call.getTargetPhoneAccount() != null && setMsimAudioParams) {
+            if (setMsimAudioParams && call != null && call.getTargetPhoneAccount() != null) {
                 PhoneAccountHandle handle = call.getTargetPhoneAccount();
                 PhoneAccount account = mTelecomManager.getPhoneAccount(handle);
                 int defaultDataSubId = SubscriptionManager.getDefaultDataSubscriptionId();
